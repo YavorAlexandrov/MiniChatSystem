@@ -60,3 +60,6 @@ void DateTime::setMinute(int min){
 void DateTime::setSeconds(int sec){
 	this->seconds = sec;
 }
+
+
+
