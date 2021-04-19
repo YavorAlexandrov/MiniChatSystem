@@ -19,8 +19,7 @@ public:
 	void setHour(int hour);
 	void setMinute(int min);
 	void setSeconds(int sec);
-	void setPassword(const char* password);
-	void setEmail(const char* email);
-private:
-	void setID(int id);
+	
+
+	
 };

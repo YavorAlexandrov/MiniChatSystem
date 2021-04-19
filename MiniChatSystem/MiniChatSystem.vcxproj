@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="MiniChatSystem.cpp" />
     <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Database.h" />
     <ClInclude Include="DateTime.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="User.h" />
