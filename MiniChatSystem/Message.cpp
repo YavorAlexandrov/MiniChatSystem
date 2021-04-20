@@ -1,3 +1,4 @@
+#pragma warning(disable : 4996)
 #include "Message.h"
 #include <iostream>
 using namespace std;

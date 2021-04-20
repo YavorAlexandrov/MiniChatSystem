@@ -1,5 +1,7 @@
 #pragma once
 #include"DateTime.h"
+
+
 class User {
 	char* username;
 	char* password;
@@ -7,6 +9,7 @@ class User {
 	int id;
 	DateTime createdAt;
 	DateTime updatedAt;
+	
 	
 	void setCreatedAt();
 	void setUpdatedAt();
@@ -26,7 +29,10 @@ public:
 	void setPassword(const char* password);
 	void setEmail(const char* email);
 	void setID(int id);
-	int getID();
+	int getID() const;
+	const char* getEmail() const;
+	const char* getUsername() const;
+	const char* getPassword() const;
 
 	
 };

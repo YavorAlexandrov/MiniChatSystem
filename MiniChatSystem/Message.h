@@ -22,7 +22,7 @@ public:
 	void setContent(const char* content);
 	void setSentBy(const User& sentBy);
 	void setReceiver(const User& receiver);
-	void setDateTime(const DateTime& tm)
+	void setDateTime(const DateTime& tm);
 };
 
 

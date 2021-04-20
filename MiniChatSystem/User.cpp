@@ -4,13 +4,12 @@
 
 
 
-User::User() {
-	User(nullptr, nullptr, nullptr, -1);
+User::User():username(nullptr), password(nullptr), email(nullptr), id(-1) {
 }
 
 User::User(const char* username, const char* password, const char* email, int id) {
 	setUsername(username);
-	setPassword(password);
+	setPassword(password);//must hash the password
 	setEmail(email);
 	setID(id);
 	setCreatedAt();
@@ -60,7 +59,7 @@ void User::free() {
 
 void User::setUsername(const char* username)
 {
-	delete[]this->username;
+	delete[] this->username;
 	this->username = new char[strlen(username) + 1];
 	strcpy(this->username, username);
 }
@@ -96,6 +95,18 @@ void User::setUpdatedAt() {
 	this->updatedAt = tm;
 }
 
-int User::getID() {
+int User::getID() const{
 	return this->id;
+}
+
+const char* User::getEmail() const{
+	return this->email;
+}
+
+const char* User::getUsername() const{
+	return this->username;
+}
+
+const char* User::getPassword() const {
+	return this->password;
 }
