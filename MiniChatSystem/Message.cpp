@@ -4,14 +4,15 @@
 using namespace std;
 
 Message::Message() {
-	Message(nullptr, User(), User(), DateTime());
+	Message(nullptr, User(), User());
 }
 
-Message::Message(const char* content, const User& sentBy, const User& receiver, const DateTime& createdAt) {
+Message::Message(const char* content, const User& sentBy, const User& receiver) {
 	setContent(content);
 	setSentBy(sentBy);
 	setReceiver(receiver);
-	setDateTime(createdAt);
+	DateTime tm;
+	setDateTime(tm);
 }
 
 void Message::setContent(const char* content)
@@ -43,4 +44,8 @@ const char* Message::getContent() {
 
 void Message::print() {
 	cout << content<<endl;
+}
+
+const DateTime& Message::getTm() {
+	return this->createdAt;
 }

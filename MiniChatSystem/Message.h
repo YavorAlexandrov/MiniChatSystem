@@ -11,13 +11,14 @@ class Message
 	void serialize();
 public:
 	Message();
-	Message(const char* content, const User& sentBy, const User& receiver,const DateTime& createdAt);
-
+	Message(const char* content, const User& sentBy, const User& receiver);
+	//the big 4
 	void print();
 	void writeToFile();
 	void loadFromFile();
 
 	const char* getContent();
+	const DateTime& getTm();
 	
 	void setContent(const char* content);
 	void setSentBy(const User& sentBy);

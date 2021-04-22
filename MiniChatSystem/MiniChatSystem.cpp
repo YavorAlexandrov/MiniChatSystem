@@ -12,11 +12,34 @@ int main()
     System s(d);
 
     s.getDatabase().loadUsersFromFile("users.vgdb");
-    cout<<s.getDatabase().getSize();
 
+
+    while (true) {
+
+    }
+
+    /*cout<<s.getDatabase().getSize();*/
+    Message m("I'm good as well! Thanks!", s.getDatabase()[1], s.getDatabase()[0]);
+    s.sendMessageTo(s.getDatabase()[1], s.getDatabase()[0], m);
     
-    s.Register("Penka", "098765", "penka@mail.com");
-   
+    /*for (int i = 0; i < s.getDatabase().getSize(); i++) {
+        cout << s.getDatabase()[i].getUsername() << " " << s.getDatabase()[i].getPassword() << " "
+            << s.getDatabase()[i].getEmail() << " " << s.getDatabase()[i].getID() << endl;
+    }*/
+   // s.Register("Ico", "zxcv", "ico@mail.com");
+    cout << endl;
+   /* int currId = s.login("Yavor", "123");
+    int size = s.getDatabase().getSize();
+    User currUser;
+    for (int i = 0; i < size; i++) {
+        if (s.getDatabase()[i].getID() == currId) {
+            currUser = s.getDatabase()[i];
+        }
+    }
+    
+    cout<<currUser.getEmail();*/
+
+    //s.forgottenPassword("asd", "pesho@mail.com");
 
 
      

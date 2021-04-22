@@ -97,7 +97,12 @@ void Database::saveUsersToFile(const User& user, const char* fileName) {
 		return;
 	}
 
-	f << user.getUsername()<<','<<user.getPassword()<<','<<user.getEmail()<<','<<user.getID()<<',';
+	f << user.getUsername() << ',' << user.getPassword() << ',' << user.getEmail() << ',' << user.getID() << ',';
+	/*user.getCrAt().printTime(f);
+	f << ',';
+	user.getUpAt().printTime(f);
+	f << ',';*/
+
 	f.close();
 }
 

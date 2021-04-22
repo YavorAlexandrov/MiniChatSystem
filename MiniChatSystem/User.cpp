@@ -7,7 +7,7 @@
 User::User():username(nullptr), password(nullptr), email(nullptr), id(-1) {
 }
 
-User::User(const char* username, const char* password, const char* email, int id) {
+User::User(const char* username, const char* password, const char* email, int id) : username(nullptr), password(nullptr), email(nullptr), id(-1) {
 	setUsername(username);
 	setPassword(password);//must hash the password
 	setEmail(email);
@@ -109,4 +109,11 @@ const char* User::getUsername() const{
 
 const char* User::getPassword() const {
 	return this->password;
+}
+
+const DateTime& User::getCrAt() const {
+	return this->createdAt;
+}
+const DateTime& User::getUpAt() const {
+	return this->updatedAt;
 }

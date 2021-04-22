@@ -33,6 +33,8 @@ public:
 	const char* getEmail() const;
 	const char* getUsername() const;
 	const char* getPassword() const;
+	const DateTime& getCrAt() const;
+	const DateTime& getUpAt() const;
 
 	
 };
