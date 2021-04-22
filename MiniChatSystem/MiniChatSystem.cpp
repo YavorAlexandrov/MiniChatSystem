@@ -12,14 +12,6 @@ int main()
     System s(d);
 
     s.getDatabase().loadUsersFromFile("users.vgdb");
-   /* s.Register("Yavor", "bvww", "yavor@mail.com");
-    for (int i = 0; i < s.getDatabase().getSize()-1; i++) {
-        cout << s.getDatabase()[i].getUsername() << " " << s.getDatabase()[i].getPassword() << " "
-            << s.getDatabase()[i].getEmail() << " " << s.getDatabase()[i].getID() << endl;
-    }*/
-    
-
-
 
     char command[16];
 
@@ -67,9 +59,10 @@ int main()
                     if (strcmp(comm, "message") == 0) {
                         Message m(b, s.getDatabase()[ind], s.getDatabase()[s.getDatabase().findUserByUsername(n)]);
                         s.sendMessageTo(s.getDatabase()[ind], m.getReceiver(), m);
+                        cout << "Message sent.\n";
                     }
                     else if (strcmp(comm, "show") == 0 && strcmp(n, "chat") == 0) {
-
+                        //s.myMessagesWith();
                     }
                     else if (strcmp(comm, "logout") == 0) {
                         cout << "Logging out...\n";
@@ -86,7 +79,7 @@ int main()
             }
         }
         else if (strcmp(command, "forgotten password")==0) {
-
+            //s.forgottenPassword();
         }
         else if (strcmp(command, "exit") == 0) {
             cout << "Exiting..." << endl;
@@ -95,34 +88,13 @@ int main()
         else {
             cout << "Invalid command!"<<endl;
         }
-        //cin.ignore();
+        
     }
     for (int i = 0; i < s.getDatabase().getSize() - 1; i++) {
         cout << s.getDatabase()[i].getUsername() << " " << s.getDatabase()[i].getPassword() << " "
             << s.getDatabase()[i].getEmail() << " " << s.getDatabase()[i].getID() << endl;
     }
-    /*cout<<s.getDatabase().getSize();*/
-    //Message m("I'm good as well! Thanks!", s.getDatabase()[1], s.getDatabase()[0]);
-   // s.sendMessageTo(s.getDatabase()[1], s.getDatabase()[0], m);
     
-   /* for (int i = 0; i < s.getDatabase().getSize(); i++) {
-        cout << s.getDatabase()[i].getUsername() << " " << s.getDatabase()[i].getPassword() << " "
-            << s.getDatabase()[i].getEmail() << " " << s.getDatabase()[i].getID() << endl;
-    }*/
-   // s.Register("Ico", "zxcv", "ico@mail.com");
-    cout << endl;
-   /* int currId = s.login("Yavor", "123");
-    int size = s.getDatabase().getSize();
-    User currUser;
-    for (int i = 0; i < size; i++) {
-        if (s.getDatabase()[i].getID() == currId) {
-            currUser = s.getDatabase()[i];
-        }
-    }
-    
-    cout<<currUser.getEmail();*/
-
-    //s.forgottenPassword("asd", "pesho@mail.com");
 
 
      
@@ -131,7 +103,7 @@ int main()
 void copyNextWord(char* dest, char* source) {
     int i = 0;
     while (source[i] != ' ') {
-        if (source[i] == '\n') {
+        if (source[i] == '\0') {
             break;
         }
         dest[i] = source[i];
