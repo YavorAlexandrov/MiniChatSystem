@@ -125,7 +125,8 @@ bool Database::validateUser(const char* username) {
 }
 
 void Database::addUser(const User& other) {
-	users[users->getID()] = other;
+	
+	users[getSize()-1] = other;
 }
 
 User& Database::operator [](int index) {

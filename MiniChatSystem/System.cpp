@@ -5,26 +5,28 @@ System::System(Database database) {
 	this->database = database;
 }
 
-void System::Register(const char* username, const char* password, const char* email) {
+void System::Register(const char* username, const char* password, const char* email, bool& successful) {
 	int id = database.getSize();
 	
 	User user(username, password, email, id);
 	if(!database.validateUser(username)) {
 		std::cout<<"Username is already taken!";
+		successful = false;
 		return;
 	}
 	database.saveUsersToFile(user, "users.vgdb");
 	database.addUser(user);
 	database.setSize(++id);
+	successful = true;
 }
 int System::login(const char* username, const char* password) {
-	for (int i = 0; i < database.getSize(); i++) {
+	for (int i = 0; i < database.getSize()-1; i++) {
 		if (strcmp(database[i].getUsername(), username)==0) {
 			if (strcmp(database[i].getPassword(), password) == 0) {
-				return database[i].getID();
+				return database[i].getID()-1;
 			}
 			else {
-				std::cout << "Wrong password!";
+				std::cout << "Wrong password!\n";
 				return -1;
 			} 
 		}
@@ -112,7 +114,7 @@ void System::myMessagesWith(User& from, User& to, int numberOfMessages) {
 	char buff[16];
 	strcpy(buff, getFileName(from, to));
 
-	std::ifstream(buff);
+	//std::ifstream(buff);
 
 }
 

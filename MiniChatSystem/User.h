@@ -20,6 +20,7 @@ class User {
 public:
 	User();
 	User(const char* username, const char* password, const char* email, int id);
+	User(char* username, char* password, char* email, int id);
 	User(const User& other);
 	User& operator =(const User& other);
 	~User();

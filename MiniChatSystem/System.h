@@ -8,7 +8,7 @@ class System
 public:
 	System(Database database);
 
-	void Register(const char* username, const char* password, const char* email);
+	void Register(const char* username, const char* password, const char* email, bool& successful);
 	int login(const char* username, const char* password);
 	void forgottenPassword(const char* newPassword, const char* email);
 	void sendMessageTo(User& from, User& to, Message message);

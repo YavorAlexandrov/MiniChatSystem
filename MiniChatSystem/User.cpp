@@ -15,6 +15,14 @@ User::User(const char* username, const char* password, const char* email, int id
 	setCreatedAt();
 	setUpdatedAt();
 }
+User::User( char* username,  char* password,  char* email, int id) : username(nullptr), password(nullptr), email(nullptr), id(-1) {
+	setUsername(username);
+	setPassword(password);//must hash the password
+	setEmail(email);
+	setID(id);
+	setCreatedAt();
+	setUpdatedAt();
+}
 User::User(const User& other) {
 	copyFrom(other);
 }

@@ -49,3 +49,33 @@ void Message::print() {
 const DateTime& Message::getTm() {
 	return this->createdAt;
 }
+
+User& Message::getReceiver() {
+	return this->receiver;
+}
+
+void Message::free() {
+	delete[] content;
+}
+void Message::copyFrom(const Message& other) {
+	this->content = new char[strlen(other.content) + 1];
+	strcpy(this->content, other.content);
+
+	this->sentBy = other.sentBy;
+	this->receiver = other.receiver;
+	this->createdAt = other.createdAt;
+}
+
+Message::Message(const Message& other) {
+	copyFrom(other);
+}
+const Message& Message::operator = (const Message& other) {
+	if (this != &other) {
+		free();
+		copyFrom(other);
+	}
+	return *this;
+}
+Message::~Message() {
+	free();
+}
